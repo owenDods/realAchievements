@@ -1,0 +1,25 @@
+{
+	"name": "realAchievements",
+	"version": "1.0.0",
+	"description": "Achievements IRL",
+	"main": "index.js",
+	"author": "Owen Dods",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "parcel index.html",
+		"build": "parcel build index.html -d build",
+		"lint": "eslint ./src"
+	},
+	"dependencies": {
+		"lodash": "^4.17.20",
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
+		"react-transition-group": "^4.4.1"
+	},
+	"devDependencies": {
+		"sass": "^1.26.10"
+	}
+}
