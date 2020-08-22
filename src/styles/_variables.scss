@@ -17,27 +17,10 @@ $_radius: 10px;
 $_transitionTiming: 0.3s;
 
 $_white: #fff;
-$_black: #000;
-
-$_white-semiOpaque: rgba(255, 255, 255, 0.5);
-$_white-slightlyOpaque: rgba(255, 255, 255, 0.75);
-
-$_black-slightlyTransparent: rgba(0, 0, 0, 0.25);
-$_black-semiOpaque: rgba(0, 0, 0, 0.5);
-
-$_yellow-primary: #f5f799;
-$_yellow-secondary: #f8f9d0;
-
-$_blue-background-primary: #99def7;
-$_blue-background-secondary: #d0e9f9;
-$_blue-primary: #5bace4;
-$_blue-secondary: #84c2ec;
-$_blue-tertiary: #afd2ea;
-
-$_red-background-primary: #ecccc3;
-$_red-background-secondary: #ecd9d3;
-$_red-primary: #e45b5b;
-$_red-secondary: #d67575;
+$_black: #090a0f;
+$_darkBlue: #1b2735;
+$_lightBlue: #81cce4;
+$_orange: #e0bb50;
 
 $_shadow: 0 1px 3px 0 $_black;
 $_shadow-raised: 0 1px 5px 0 $_black;
