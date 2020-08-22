@@ -39,6 +39,7 @@ module.exports = {
     'react/jsx-fragments': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'jsx-a11y/alt-text': 'off',
-    'import/no-unresolved': [ 2, { ignore: [ '\.jpg$' ] } ]
+    'import/no-unresolved': [ 2, { ignore: [ '\.jpg$' ] } ],
+    'jsx-a11y/no-static-element-interactions': 'off'
   },
 };

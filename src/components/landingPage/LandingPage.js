@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import delay from 'lodash/fp/delay';
 
@@ -7,10 +7,17 @@ export const className = 'landingPage';
 const LandingPage = () => {
 
 	const [ shouldRedirect, setShouldRedirect ] = useState(false);
+	const redirectTimeout = useRef(null);
 
 	useEffect(() => {
 
-		delay(5000, () => setShouldRedirect(true));
+		redirectTimeout.current = delay(5000, () => setShouldRedirect(true));
+
+		return () => {
+
+			clearTimeout(redirectTimeout.current);
+
+		};
 
 	}, []);
 
@@ -18,7 +25,7 @@ const LandingPage = () => {
 
 	return (
 
-		<div className={className}>
+		<div className={className} onClick={() => setShouldRedirect(true)}>
 
 			<h1>Real Achievements</h1>
 
