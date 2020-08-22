@@ -10,17 +10,31 @@ import {
 	CSSTransition
 } from 'react-transition-group';
 
+import Home from '../home/Home';
 import LandingPage from '../landingPage/LandingPage';
 
+export const appTransitionTiming = 1000;
 export const className = 'app';
 
 const routeTransitionRenderer = ({ location }) => (
 
 	<TransitionGroup className={className}>
 
-		<CSSTransition timeout={1000} classNames={className} key={location.pathname.match(/[^/]*\/[^/]*/)[0]}>
+		<CSSTransition
+			timeout={appTransitionTiming}
+			classNames={className}
+			key={location.pathname.match(/[^/]*\/[^/]*/)[0]}
+			appear
+			in
+		>
 
 			<Switch location={location}>
+
+				<Route path="/home">
+
+					<Home />
+
+				</Route>
 
 				<Route path="/">
 

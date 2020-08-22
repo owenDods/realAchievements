@@ -8,6 +8,49 @@
 	h1 {
 		margin: auto;
 		font-size: 10vmin;
+		transition: opacity $_transitionTiming ease-in-out, letter-spacing 5s, transform $_transitionTiming ease-in-out;
+	}
+
+	&.app-appear {
+
+		h1 {
+			opacity: 0;
+			letter-spacing: 0.1em;
+			transform: scale(0.9);
+		}
+
+		&-active,
+		&-done {
+
+			h1 {
+				opacity: 1;
+				letter-spacing: 0.2em;
+				transform: scale(1);
+			}
+
+		}
+
+	}
+
+	&.app-exit {
+
+		h1 {
+			opacity: 1;
+			letter-spacing: 0.2em;
+			transform: scale(1);
+		}
+
+		&-active,
+		&-done {
+
+			h1 {
+				opacity: 0;
+				letter-spacing: 0.1em;
+				transform: scale(0.9);
+			}
+
+		}
+
 	}
 
 }
