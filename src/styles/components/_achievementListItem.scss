@@ -1,0 +1,13 @@
+.achievementListItem {
+
+	width: 100%;
+	height: 100%;
+	padding: $_gutter;
+	box-sizing: border-box;
+	display: flex;
+
+	&__name {
+		margin: auto auto auto 0;
+	}
+
+}

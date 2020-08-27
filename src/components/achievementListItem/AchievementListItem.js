@@ -7,7 +7,7 @@ const AchievementListItem = ({ name }) => (
 
 	<div className={className}>
 
-		<p>{name}</p>
+		<p className={`${className}__name`}>{name}</p>
 
 	</div>
 
