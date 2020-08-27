@@ -8,7 +8,11 @@ const Home = () => (
 
 	<div className={className}>
 
-		<List />
+		<div className={`${className}__feed`}>
+
+			<List />
+
+		</div>
 
 	</div>
 

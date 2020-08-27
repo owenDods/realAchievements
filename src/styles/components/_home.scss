@@ -1,0 +1,19 @@
+$home-feedWidth: 60%;
+$home-feedMargin: 100% - $home-feedWidth;
+
+.home {
+
+	&__feed {
+
+		width: 100%;
+		height: 100%;
+		margin: auto;
+
+		.list__item {
+			margin: 0 ($home-feedMargin / 2) $_gutter;
+			width: calc(100% - #{$home-feedMargin});
+		}
+
+	}
+
+}

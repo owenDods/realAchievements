@@ -25,9 +25,12 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		overflow-y: auto;
+		padding: $_gutter 0 0;
+		box-sizing: border-box;
+		overflow-y: hidden;
 		opacity: 0;
 		transition: opacity $_transitionTiming ease-in-out $_transitionTiming;
+		display: flex;
 
 		&.app-enter {
 

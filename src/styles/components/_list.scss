@@ -1,15 +1,23 @@
+$list-itemHeight: 100px;
+
 .list {
 
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow-y: auto;
 
 	&__item {
-		width: 100%;
-		height: 50px;
+		margin: 0 $_gutter $_gutter;
+		width: calc(100% - (#{$_gutter} * 2));
+		height: $list-itemHeight;
 		border-radius: $_radius;
 		background-color: $_white-mostlyTransparent;
+	}
+
+	&--initialLoad {
+		overflow: hidden;
 	}
 
 }

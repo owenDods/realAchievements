@@ -30,11 +30,15 @@ const List = () => {
 
 	return (
 
-		<ul className={styleClass}>
+		<div className={styleClass}>
 
-			{loadingPlaceholderContent}
+			<ul>
 
-		</ul>
+				{loadingPlaceholderContent}
+
+			</ul>
+
+		</div>
 
 	);
 
