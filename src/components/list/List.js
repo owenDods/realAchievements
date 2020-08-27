@@ -1,12 +1,20 @@
 import React, { useState, Fragment, cloneElement, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import {
+	TransitionGroup,
+	CSSTransition
+} from 'react-transition-group';
 
+import { appTransitionTiming } from '../app/App';
+
+export const placeholderCount = 7;
 export const className = 'list';
 
 const List = ({ items, children, name }) => {
 
 	const [ isWaitingForInitialLoad, setWaitingForInitialLoadStatus ] = useState(true);
+	const [ showActualItems, setShowActualItems ] = useState(false);
 
 	useEffect(() => {
 
@@ -19,44 +27,67 @@ const List = ({ items, children, name }) => {
 	}, [ items ]);
 
 	const listItemClass = `${className}__item`;
-	const loadingPlaceholderContent = isWaitingForInitialLoad ? (
+	const getPlaceHolderItem = index => (
 
-		<Fragment>
+		<CSSTransition
+			timeout={appTransitionTiming}
+			classNames={className}
+			key={`${className}-${name}-placeholder-${index}`}
+			appear
+			in
+			onExited={() => setShowActualItems(true)}
+		>
 
 			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
 
-		</Fragment>
+		</CSSTransition>
 
-	) : null;
-	const listItems = isWaitingForInitialLoad ? null : map.convert({ cap: false })((item, i) => (
+	);
+	const getPlaceHolderItems = () => {
 
-		<li className={listItemClass} key={`${className}-${name}-${i}`}>
+		const placeholderItems = [];
 
-			{cloneElement(children, item)}
+		while (placeholderItems.length < placeholderCount) {
 
-		</li>
+			placeholderItems.push(getPlaceHolderItem(placeholderItems.length));
 
-	), items);
+		}
 
-	const styleClass = isWaitingForInitialLoad ? `${className} ${className}--initialLoad` : className;
+		return placeholderItems;
+
+	};
+	const loadingPlaceholderContent = isWaitingForInitialLoad ? getPlaceHolderItems() : null;
+	const listItems = showActualItems ? map.convert({ cap: false })((item, i) => (
+
+		<CSSTransition
+			timeout={appTransitionTiming}
+			classNames={className}
+			key={`${className}-${name}-${i}`}
+		>
+
+			<li className={listItemClass}>
+
+				{cloneElement(children, item)}
+
+			</li>
+
+		</CSSTransition>
+
+	), items) : null;
+
+	const styleClass = !showActualItems ? `${className} ${className}--showingPlaceholders` : className;
 
 	return (
 
 		<div className={styleClass}>
 
-			<ul>
+			<TransitionGroup component="ul">
 
 				{loadingPlaceholderContent}
 
 				{listItems}
 
-			</ul>
+			</TransitionGroup>
 
 		</div>
 

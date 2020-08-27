@@ -16,7 +16,7 @@ $list-itemHeight: 100px;
 		background-color: $_white-mostlyTransparent;
 	}
 
-	&--initialLoad {
+	&--showingPlaceholders {
 
 		overflow: hidden;
 		@include opacityPulse;
@@ -51,6 +51,30 @@ $list-itemHeight: 100px;
 				opacity: 0.1;
 			}
 
+		}
+
+	}
+
+	&-enter {
+
+		opacity: 0;
+		transform: translateY($_gutter);
+
+		&-active,
+		&-done {
+			opacity: 1;
+			transform: translateY(0);
+			transition: opacity $_transitionTiming ease-in-out, transform $_transitionTiming ease-in-out;
+		}
+
+	}
+
+	&-exit {
+
+		&-active,
+		&-done {
+			opacity: 0;
+			transition: opacity $_transitionTiming ease-in-out;
 		}
 
 	}
