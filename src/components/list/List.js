@@ -1,10 +1,21 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, cloneElement, useEffect } from 'react';
+import map from 'lodash/fp/map';
 
 export const className = 'list';
 
-const List = () => {
+const List = ({ items, children, name }) => {
 
 	const [ isWaitingForInitialLoad, setWaitingForInitialLoadStatus ] = useState(true);
+
+	useEffect(() => {
+
+		if (items && isWaitingForInitialLoad) {
+
+			setWaitingForInitialLoadStatus(false);
+
+		}
+
+	}, [ items ]);
 
 	const listItemClass = `${className}__item`;
 	const loadingPlaceholderContent = isWaitingForInitialLoad ? (
@@ -22,6 +33,15 @@ const List = () => {
 		</Fragment>
 
 	) : null;
+	const listItems = isWaitingForInitialLoad ? null : map.convert({ cap: false })((item, i) => (
+
+		<li className={listItemClass} key={`${className}-${name}-${i}`}>
+
+			{cloneElement(children, item)}
+
+		</li>
+
+	), items);
 
 	const styleClass = isWaitingForInitialLoad ? `${className} ${className}--initialLoad` : className;
 
@@ -32,6 +52,8 @@ const List = () => {
 			<ul>
 
 				{loadingPlaceholderContent}
+
+				{listItems}
 
 			</ul>
 

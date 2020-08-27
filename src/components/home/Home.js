@@ -1,21 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import delay from 'lodash/fp/delay';
+
+import achievementsFeedJson from '../../achievementsFeed.json';
 
 import List from '../list/List';
+import AchievementListItem from '../achievementListItem/AchievementListItem';
 
 export const className = 'home';
 
-const Home = () => (
+const Home = () => {
 
-	<div className={className}>
+	const [ homeFeedAchievements, setHomeFeedAchievements ] = useState(null);
+	useEffect(() => {
 
-		<div className={`${className}__feed`}>
+		new Promise(res => {
 
-			<List />
+			delay(2000, () => {
+
+				return res(achievementsFeedJson);
+
+			});
+
+		})
+		.then(data => setHomeFeedAchievements(data));
+
+	}, []);
+
+	return (
+
+		<div className={className}>
+
+			<div className={`${className}__feed`}>
+
+				<List items={homeFeedAchievements} name={`${className}-feed`}>
+
+					<AchievementListItem />
+
+				</List>
+
+			</div>
 
 		</div>
 
-	</div>
+	);
 
-);
+};
 
 export default Home;
