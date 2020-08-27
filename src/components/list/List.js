@@ -65,7 +65,10 @@ const List = ({ items, children, name }) => {
 			key={`${className}-${name}-${i}`}
 		>
 
-			<li className={listItemClass}>
+			<li
+				className={listItemClass}
+				style={{ transitionDelay: `${i * 0.1}s` }}
+			>
 
 				{cloneElement(children, item)}
 
