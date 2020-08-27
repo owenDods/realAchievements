@@ -10,6 +10,7 @@
 		margin: auto;
 		font-size: 10vmin;
 		transition: opacity $_transitionTiming ease-in-out, letter-spacing 5s, transform $_transitionTiming ease-in-out;
+		text-align: center;
 	}
 
 	&.app-appear {

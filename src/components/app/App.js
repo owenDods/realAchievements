@@ -13,42 +13,50 @@ import {
 import Home from '../home/Home';
 import LandingPage from '../landingPage/LandingPage';
 
-export const appTransitionTiming = 1000;
+export const appTransitionTiming = 300;
 export const className = 'app';
 
-const routeTransitionRenderer = ({ location }) => (
+const routeTransitionRenderer = ({ location }) => {
 
-	<TransitionGroup className={className}>
+	const { pathname } = location;
 
-		<CSSTransition
-			timeout={appTransitionTiming}
-			classNames={className}
-			key={location.pathname.match(/[^/]*\/[^/]*/)[0]}
-			appear
-			in
-		>
+	const styleClass = pathname === '/' ? `${className} ${className}--landingPage` : className;
 
-			<Switch location={location}>
+	return (
 
-				<Route path="/home">
+		<TransitionGroup className={styleClass}>
 
-					<Home />
+			<CSSTransition
+				timeout={appTransitionTiming}
+				classNames={className}
+				key={pathname.match(/[^/]*\/[^/]*/)[0]}
+				appear
+				in
+			>
 
-				</Route>
+				<Switch location={location}>
 
-				<Route path="/">
+					<Route path="/home">
 
-					<LandingPage />
+						<Home />
 
-				</Route>
+					</Route>
 
-			</Switch>
+					<Route path="/">
 
-		</CSSTransition>
+						<LandingPage />
 
-	</TransitionGroup>
+					</Route>
 
-);
+				</Switch>
+
+			</CSSTransition>
+
+		</TransitionGroup>
+
+	);
+
+};
 
 routeTransitionRenderer.propTypes = {
 	location: PropTypes.shape({
