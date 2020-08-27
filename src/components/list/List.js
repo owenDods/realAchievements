@@ -18,9 +18,6 @@ const List = () => {
 			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
 			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
 			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
-			<li className={`${listItemClass} ${listItemClass}--placeholder`} />
 
 		</Fragment>
 
