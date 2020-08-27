@@ -15,14 +15,10 @@ const Home = () => {
 
 		new Promise(res => {
 
-			delay(2000, () => {
-
-				return res(achievementsFeedJson);
-
-			});
+			delay(2000, () => res(achievementsFeedJson));
 
 		})
-		.then(data => setHomeFeedAchievements(data));
+			.then(data => setHomeFeedAchievements(data));
 
 	}, []);
 

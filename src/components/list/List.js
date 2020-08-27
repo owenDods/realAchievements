@@ -1,4 +1,5 @@
 import React, { useState, Fragment, cloneElement, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 
 export const className = 'list';
@@ -61,6 +62,12 @@ const List = ({ items, children, name }) => {
 
 	);
 
+};
+
+List.propTypes = {
+	items: PropTypes.arrayOf(PropTypes.shape({})),
+	children: PropTypes.element,
+	name: PropTypes.string.isRequired
 };
 
 export default List;

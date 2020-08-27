@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const className = 'achievementListItem';
 
-const AchievementListItem = ({ name }) => {
+const AchievementListItem = ({ name }) => (
 
-	return (
+	<div className={className}>
 
-		<div className={className}>
+		<p>{name}</p>
 
-			<p>{name}</p>
+	</div>
 
-		</div>
+);
 
-	);
-
+AchievementListItem.propTypes = {
+	name: PropTypes.string
 };
 
 export default AchievementListItem;
