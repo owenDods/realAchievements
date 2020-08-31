@@ -1,5 +1,3 @@
-$list-itemHeight: 100px;
-
 .list {
 
 	width: 100%;
@@ -11,9 +9,10 @@ $list-itemHeight: 100px;
 	&__item {
 		margin: 0 $_gutter $_gutter;
 		width: calc(100% - (#{$_gutter} * 2));
-		height: $list-itemHeight;
+		height: $_listItemHeight;
 		border-radius: $_radius;
 		background-color: $_white-mostlyTransparent;
+		box-shadow: $_shadow;
 	}
 
 	&--showingPlaceholders {
