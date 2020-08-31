@@ -66,10 +66,10 @@
 			transition: opacity $_transitionTiming ease-in-out, transform $_transitionTiming ease-in-out;
 		}
 
-		&-done {
-			@include backgroundFlash;
-		}
+	}
 
+	&:not(.list--showingPlaceholders) .list-enter-done {
+		@include backgroundFlash;
 	}
 
 	&-exit {

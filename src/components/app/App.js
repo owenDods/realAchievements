@@ -12,6 +12,7 @@ import {
 
 import { appTransitionTiming } from '../../config';
 
+import NavBar from '../navBar/NavBar';
 import Home from '../home/Home';
 import LandingPage from '../landingPage/LandingPage';
 
@@ -25,35 +26,41 @@ const routeTransitionRenderer = ({ location }) => {
 
 	return (
 
-		<TransitionGroup className={styleClass}>
+		<div className={styleClass}>
 
-			<CSSTransition
-				timeout={appTransitionTiming}
-				classNames={className}
-				key={pathname.match(/[^/]*\/[^/]*/)[0]}
-				appear
-				in
-			>
+			<NavBar />
 
-				<Switch location={location}>
+			<TransitionGroup className={`${className}__content`}>
 
-					<Route path="/home">
+				<CSSTransition
+					timeout={appTransitionTiming}
+					classNames={className}
+					key={pathname.match(/[^/]*\/[^/]*/)[0]}
+					appear
+					in
+				>
 
-						<Home />
+					<Switch location={location}>
 
-					</Route>
+						<Route path="/home">
 
-					<Route path="/">
+							<Home />
 
-						<LandingPage />
+						</Route>
 
-					</Route>
+						<Route path="/">
 
-				</Switch>
+							<LandingPage />
 
-			</CSSTransition>
+						</Route>
 
-		</TransitionGroup>
+					</Switch>
+
+				</CSSTransition>
+
+			</TransitionGroup>
+
+		</div>
 
 	);
 
