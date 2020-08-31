@@ -10,10 +10,11 @@ import {
 	CSSTransition
 } from 'react-transition-group';
 
+import { appTransitionTiming } from '../../config';
+
 import Home from '../home/Home';
 import LandingPage from '../landingPage/LandingPage';
 
-export const appTransitionTiming = 300;
 export const className = 'app';
 
 const routeTransitionRenderer = ({ location }) => {

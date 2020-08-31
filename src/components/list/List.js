@@ -1,4 +1,4 @@
-import React, { useState, Fragment, cloneElement, useEffect } from 'react';
+import React, { useState, cloneElement, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import {
@@ -6,7 +6,7 @@ import {
 	CSSTransition
 } from 'react-transition-group';
 
-import { appTransitionTiming } from '../app/App';
+import { appTransitionTiming } from '../../config';
 
 export const placeholderCount = 7;
 export const className = 'list';
