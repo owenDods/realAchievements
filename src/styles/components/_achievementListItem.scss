@@ -14,9 +14,20 @@ $achievementListItem-imgSize: $_listItemHeight - ($_gutter * 2);
 		margin: 0 $_gutter 0 0;
 	}
 
+	&__textContent {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__name {
-		margin: auto auto auto 0;
+		margin: 0 auto 0 0;
 		font-size: $_fontSize-medium;
+		font-weight: bold;
+	}
+
+	&__dateEarned {
+		font-size: $_fontSize-small;
+		color: #333543;
 	}
 
 }

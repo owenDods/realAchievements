@@ -5,20 +5,27 @@ import ImgHolder from '../imgHolder/ImgHolder';
 
 export const className = 'achievementListItem';
 
-const AchievementListItem = ({ name }) => (
+const AchievementListItem = ({ name, dateEarned }) => (
 
 	<div className={className}>
 
 		<ImgHolder />
 
-		<p className={`${className}__name`}>{name}</p>
+		<div className={`${className}__textContent`}>
+
+			<p className={`${className}__name`}>{name}</p>
+
+			<p className={`${className}__dateEarned`}>Earned: {dateEarned}</p>
+
+		</div>
 
 	</div>
 
 );
 
 AchievementListItem.propTypes = {
-	name: PropTypes.string
+	name: PropTypes.string,
+	dateEarned: PropTypes.string
 };
 
 export default AchievementListItem;

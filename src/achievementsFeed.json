@@ -1,14 +1,17 @@
 [
 	{
 		"id": 1,
-		"name": "Climbed Ben Nevis"
+		"name": "Climbed Ben Nevis",
+		"dateEarned": "2020-08-31"
 	},
 	{
 		"id": 2,
-		"name": "Climbed Snowdon"
+		"name": "Climbed Snowdon",
+		"dateEarned": "2020-08-26"
 	},
 	{
 		"id": 3,
-		"name": "Climbed Scafell Pike"
+		"name": "Climbed Scafell Pike",
+		"dateEarned": "2019-05-16"
 	}
 ]
