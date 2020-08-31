@@ -13,3 +13,19 @@
 	}
 
 }
+
+@keyframes backgroundFlash {
+
+	0% {
+		background-color: $_white-mostlyTransparent;
+	}
+
+	1% {
+		background-color: $_white-almostOpaque;
+	}
+
+	100% {
+		background-color: $_white-mostlyTransparent;
+	}
+
+}

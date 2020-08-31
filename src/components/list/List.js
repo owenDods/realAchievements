@@ -9,6 +9,7 @@ import {
 import { appTransitionTiming } from '../../config';
 
 export const placeholderCount = 7;
+export const staggerDelay = 0.1;
 export const className = 'list';
 
 const List = ({ items, children, name }) => {
@@ -67,7 +68,7 @@ const List = ({ items, children, name }) => {
 
 			<li
 				className={listItemClass}
-				style={{ transitionDelay: `${i * 0.1}s` }}
+				style={{ transitionDelay: `${i * staggerDelay}s`, animationDelay: `${i * staggerDelay}s` }}
 			>
 
 				{cloneElement(children, item)}
