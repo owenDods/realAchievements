@@ -17,15 +17,15 @@
 @keyframes backgroundFlash {
 
 	0% {
-		background-color: $_white-mostlyTransparent;
+		background-color: $_black-mostlyTransparent;
 	}
 
 	1% {
-		background-color: $_white-almostOpaque;
+		background-color: $_white-semiOpaque;
 	}
 
 	100% {
-		background-color: $_white-mostlyTransparent;
+		background-color: $_black-mostlyTransparent;
 	}
 
 }

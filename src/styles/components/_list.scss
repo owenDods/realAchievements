@@ -11,7 +11,7 @@
 		width: calc(100% - (#{$_gutter} * 2));
 		height: $_listItemHeight;
 		border-radius: $_radius;
-		background-color: $_white-mostlyTransparent;
+		background-color: $_black-mostlyTransparent;
 		box-shadow: $_shadow;
 	}
 

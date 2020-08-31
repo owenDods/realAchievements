@@ -27,7 +27,7 @@ $achievementListItem-imgSize: $_listItemHeight - ($_gutter * 2);
 
 	&__dateEarned {
 		font-size: $_fontSize-small;
-		color: #333543;
+		color: $_lightOrange;
 	}
 
 }
