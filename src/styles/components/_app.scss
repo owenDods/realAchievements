@@ -23,6 +23,7 @@
 	&__content {
 
 		position: absolute;
+		top: $_navBarHeight;
 		width: 100%;
 		height: calc(100% - #{$_navBarHeight});
 

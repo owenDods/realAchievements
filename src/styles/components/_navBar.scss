@@ -1,4 +1,8 @@
 .navBar {
 	width: 100%;
 	height: $_navBarHeight;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
 }

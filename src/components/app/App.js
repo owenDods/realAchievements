@@ -28,7 +28,7 @@ const routeTransitionRenderer = ({ location }) => {
 
 		<div className={styleClass}>
 
-			<NavBar />
+			<NavBar items={pathname.slice(1).split('/')} />
 
 			<TransitionGroup className={`${className}__content`}>
 
