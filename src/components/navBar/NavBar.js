@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+	TransitionGroup,
+	CSSTransition
+} from 'react-transition-group';
 import map from 'lodash/fp/map';
+
+import { appTransitionTiming } from '../../config';
 
 import NavBarItem from './NavBarItem';
 
@@ -8,15 +14,23 @@ export const className = 'navBar';
 
 const NavBar = ({ items }) => (
 
-	<div className={className}>
+	<TransitionGroup className={className}>
 
 		{map.convert({ cap: false })((item, i) => (
 
-			<NavBarItem key={`${className}-${i}-${item}`} name={item} />
+			<CSSTransition
+				timeout={appTransitionTiming}
+				classNames={className}
+				key={`${className}-${i}-${item}`}
+			>
+
+				<NavBarItem name={item} />
+
+			</CSSTransition>
 
 		), items)}
 
-	</div>
+	</TransitionGroup>
 
 );
 

@@ -1,8 +1,22 @@
 .navBar {
+
 	width: 100%;
 	height: $_navBarHeight;
 	position: absolute;
 	top: 0;
 	left: 0;
 	display: flex;
+
+	&Item {
+
+		display: flex;
+		margin: 0 0 0 $_gutter;
+
+		&__name {
+			margin: auto;
+			padding: $_gutter;
+		}
+
+	}
+
 }
