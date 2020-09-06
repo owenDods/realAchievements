@@ -1,3 +1,5 @@
+$navBar-trophySize: calc(#{$_navBarHeight} - (#{$_gutter} * 2));
+
 .navBar {
 
 	width: 100%;
@@ -6,6 +8,17 @@
 	top: 0;
 	left: 0;
 	display: flex;
+
+	&__trophy {
+		fill: $_orange;
+		width: $navBar-trophySize;
+		height: $navBar-trophySize;
+		margin: $_gutter;
+	}
+
+	&__links {
+		display: flex;
+	}
 
 	&Item {
 

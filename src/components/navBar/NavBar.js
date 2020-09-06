@@ -8,29 +8,37 @@ import map from 'lodash/fp/map';
 
 import { appTransitionTiming } from '../../config';
 
+import Trophy from '../../img/trophy.svg';
+
 import NavBarItem from './NavBarItem';
 
 export const className = 'navBar';
 
 const NavBar = ({ items }) => (
 
-	<TransitionGroup className={className}>
+	<div className={className}>
 
-		{map.convert({ cap: false })((item, i) => (
+		<Trophy className={`${className}__trophy`} />
 
-			<CSSTransition
-				timeout={appTransitionTiming}
-				classNames={className}
-				key={`${className}-${i}-${item}`}
-			>
+		<TransitionGroup className={`${className}__links`}>
 
-				<NavBarItem name={item} />
+			{map.convert({ cap: false })((item, i) => (
 
-			</CSSTransition>
+				<CSSTransition
+					timeout={appTransitionTiming}
+					classNames={className}
+					key={`${className}-${i}-${item}`}
+				>
 
-		), items)}
+					<NavBarItem name={item} />
 
-	</TransitionGroup>
+				</CSSTransition>
+
+			), items)}
+
+		</TransitionGroup>
+
+	</div>
 
 );
 
