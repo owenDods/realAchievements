@@ -38,3 +38,13 @@ input[type="text"] {
 p {
 	margin: 0;
 }
+
+button {
+	color: $_orange;
+	@include clickable;
+	border: none;
+	padding: 0 $_gutter-small;
+	line-height: $_lineHeight;
+	font-family: 'Montserrat', sans-serif;
+	font-size: $_fontSize;
+}

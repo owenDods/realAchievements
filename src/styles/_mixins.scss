@@ -5,3 +5,20 @@
 @mixin backgroundFlash {
 	animation: backgroundFlash 0.5s ease-in-out;
 }
+
+@mixin clickable {
+
+	border-radius: $_radius;
+	background-color: $_black-mostlyTransparent;
+	box-shadow: $_shadow;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $_grey-mostlyTransparent;
+	}
+
+	&:active {
+		background-color: $_white-mostlyTransparent;
+	}
+
+}

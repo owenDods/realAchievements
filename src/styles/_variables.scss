@@ -23,6 +23,7 @@ $_transitionTiming: 0.3s;
 $_white: #f5f5f5;
 $_black: #090a0f;
 $_darkGrey: #333543;
+$_grey: #797a82;
 $_darkBlue: #1b2735;
 $_lightBlue: #6892c3;
 $_orange: #e0bb50;
@@ -32,6 +33,11 @@ $_white-mostlyTransparent: rgba(245, 245, 245, 0.4);
 $_white-semiOpaque: rgba(245, 245, 245, 0.5);
 $_white-mostlyOpaque: rgba(245, 245, 245, 0.6);
 $_white-almostOpaque: rgba(245, 245, 245, 0.8);
+
+$_grey-mostlyTransparent: rgba(121, 122, 130, 0.4);
+$_grey-semiOpaque: rgba(121, 122, 130, 0.5);
+$_grey-mostlyOpaque: rgba(121, 122, 130, 0.6);
+$_grey-almostOpaque: rgba(121, 122, 130, 0.8);
 
 $_black-mostlyTransparent: rgba(9, 10, 15, 0.4);
 $_black-semiOpaque: rgba(9, 10, 15, 0.5);

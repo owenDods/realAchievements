@@ -1,0 +1,23 @@
+$dropdown-arrowSize: $_lineHeight / 2;
+
+.dropdown {
+
+	&__button {
+
+		display: flex;
+
+		svg {
+			fill: $_orange;
+			transform: rotate(180deg);
+			width: $dropdown-arrowSize;
+			height: $dropdown-arrowSize;
+			margin: auto 0 auto $_gutter-small;
+		}
+
+	}
+
+	&--active .dropdown__button {
+		background-color: $_white-mostlyTransparent;
+	}
+
+}

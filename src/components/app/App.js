@@ -21,6 +21,9 @@ export const className = 'app';
 const routeTransitionRenderer = ({ location }) => {
 
 	const { pathname } = location;
+	const allPaths = pathname.slice(1).split('/');
+	const rootPath = allPaths[0];
+	const nonRootPaths = allPaths.slice(1);
 
 	const styleClass = pathname === '/' ? `${className} ${className}--landingPage` : className;
 
@@ -28,7 +31,10 @@ const routeTransitionRenderer = ({ location }) => {
 
 		<div className={styleClass}>
 
-			<NavBar items={pathname.slice(1).split('/').slice(1)} />
+			<NavBar
+				rootPath={rootPath}
+				items={nonRootPaths}
+			/>
 
 			<TransitionGroup className={`${className}__content`}>
 

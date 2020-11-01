@@ -10,15 +10,18 @@ import { appTransitionTiming } from '../../config';
 
 import Trophy from '../../img/trophy.svg';
 
+import Dropdown from '../dropdown/Dropdown';
 import NavBarItem from './NavBarItem';
 
 export const className = 'navBar';
 
-const NavBar = ({ items }) => (
+const NavBar = ({ rootPath, items }) => (
 
 	<div className={className}>
 
 		<Trophy className={`${className}__trophy`} />
+
+		<Dropdown value={rootPath} />
 
 		<TransitionGroup className={`${className}__links`}>
 
@@ -43,6 +46,7 @@ const NavBar = ({ items }) => (
 );
 
 NavBar.propTypes = {
+	rootPath: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.string)
 };
 

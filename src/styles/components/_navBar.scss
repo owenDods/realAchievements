@@ -16,6 +16,10 @@ $navBar-trophySize: calc(#{$_navBarHeight} - (#{$_gutter} * 2));
 		margin: $_gutter;
 	}
 
+	.dropdown {
+		margin: auto 0;
+	}
+
 	&__links {
 		display: flex;
 	}

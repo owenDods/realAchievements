@@ -10,9 +10,7 @@
 		margin: 0 $_gutter $_gutter;
 		width: calc(100% - (#{$_gutter} * 2));
 		height: $_listItemHeight;
-		border-radius: $_radius;
-		background-color: $_black-mostlyTransparent;
-		box-shadow: $_shadow;
+		@include clickable;
 	}
 
 	&--showingPlaceholders {
