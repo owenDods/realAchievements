@@ -5,6 +5,7 @@ import {
 	CSSTransition
 } from 'react-transition-group';
 import map from 'lodash/fp/map';
+import startCase from 'lodash/fp/startCase';
 
 import { appTransitionTiming } from '../../config';
 
@@ -14,6 +15,7 @@ import Dropdown from '../dropdown/Dropdown';
 import NavBarItem from './NavBarItem';
 
 export const className = 'navBar';
+export const rootPaths = [ 'home', 'explore' ];
 
 const NavBar = ({ rootPath, items }) => (
 
@@ -21,7 +23,7 @@ const NavBar = ({ rootPath, items }) => (
 
 		<Trophy className={`${className}__trophy`} />
 
-		<Dropdown value={rootPath} />
+		<Dropdown value={startCase(rootPath)} options={map(startCase, rootPaths)} />
 
 		<TransitionGroup className={`${className}__links`}>
 

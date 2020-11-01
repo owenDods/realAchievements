@@ -2,6 +2,8 @@ $dropdown-arrowSize: $_lineHeight / 2;
 
 .dropdown {
 
+	position: relative;
+
 	&__button {
 
 		display: flex;
@@ -16,8 +18,46 @@ $dropdown-arrowSize: $_lineHeight / 2;
 
 	}
 
-	&--active .dropdown__button {
+	&__options {
+
+		position: absolute;
+		left: 0;
+		top: 100%;
+		padding: $_gutter-small $_gutter-small 0;
 		background-color: $_white-mostlyTransparent;
+		border-radius: $_radius;
+		z-index: $_z-index-1;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility $_transitionTiming ease-in-out, opacity $_transitionTiming ease-in-out, transform $_transitionTiming ease-in-out;
+
+		.list {
+
+			overflow: visible;
+
+			&__item {
+				width: auto;
+				height: auto;
+				margin: 0 0 $_gutter-small;
+				padding: $_gutter-small;
+			}
+
+		}
+
+	}
+
+	&--active .dropdown {
+
+		&__button {
+			background-color: $_white-mostlyTransparent;
+		}
+
+		&__options {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY($_gutter-small);
+		}
+
 	}
 
 }

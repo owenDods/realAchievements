@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-import startCase from 'lodash/fp/startCase';
+import map from 'lodash/fp/map';
 
 import Triangle from '../../img/triangle.svg';
 
 import useDocumentClickListener from '../utils/useDocumentClickListener';
 
+import List from '../list/List';
+import DropdownOption from './DropdownOption';
+
 export const className = 'dropdown';
 
-const Dropdown = ({ value = '' }) => {
+const Dropdown = ({ value = '', options }) => {
 
 	const [ isActive, setIsActive ] = useState(false);
 	const handleActiveToggle = () => setIsActive(oldIsActive => !oldIsActive);
@@ -28,11 +30,24 @@ const Dropdown = ({ value = '' }) => {
 				onClick={handleActiveToggle}
 			>
 
-				<span>{startCase(value)}</span>
+				<span>{value}</span>
 
 				<Triangle />
 
 			</button>
+
+			<div className={`${className}__options`}>
+
+				<List
+					items={map(option => ({ label: option }), options)}
+					name={`${className}-options`}
+				>
+
+					<DropdownOption />
+
+				</List>
+
+			</div>
 
 		</div>
 
@@ -41,7 +56,8 @@ const Dropdown = ({ value = '' }) => {
 };
 
 Dropdown.propTypes = {
-	value: PropTypes.string
+	value: PropTypes.string,
+	options: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default Dropdown;
