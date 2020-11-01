@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 
@@ -15,14 +15,26 @@ const Dropdown = ({ value = '', options }) => {
 
 	const [ isActive, setIsActive ] = useState(false);
 	const handleActiveToggle = () => setIsActive(oldIsActive => !oldIsActive);
+	const dropdownEl = useRef(null);
+	const handleDocumentClick = ({ target }) => {
 
-	useDocumentClickListener(handleActiveToggle, isActive);
+		if (target === dropdownEl.current || dropdownEl.current.contains(target)) {
+
+			return;
+
+		}
+
+		handleActiveToggle();
+
+	};
+
+	useDocumentClickListener(handleDocumentClick, isActive);
 
 	const styleClass = isActive ? `${className} ${className}--active` : className;
 
 	return (
 
-		<div className={styleClass}>
+		<div className={styleClass} ref={dropdownEl}>
 
 			<button
 				className={`${className}__button`}
