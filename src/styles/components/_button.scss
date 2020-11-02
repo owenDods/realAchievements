@@ -12,4 +12,14 @@
 		height: 50%;
 	}
 
+	&--textPositionBottom {
+
+		flex-direction: column-reverse;
+
+		svg {
+			margin: auto auto $_gutter-small auto;
+		}
+
+	}
+
 }

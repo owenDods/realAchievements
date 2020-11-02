@@ -12,9 +12,9 @@ const Explore = () => (
 
 	<div className={className}>
 
-		<Button label="By Location" icon={(<Compass />)} />
+		<Button label="By Location" icon={(<Compass />)} textPosition="bottom" />
 
-		<Button label="By Category" icon={(<Categories />)} />
+		<Button label="By Category" icon={(<Categories />)} textPosition="bottom" />
 
 	</div>
 
