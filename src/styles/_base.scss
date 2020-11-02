@@ -45,7 +45,11 @@ button {
 	border: none;
 	padding: 0 $_gutter-small;
 	line-height: $_lineHeight;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Jost', sans-serif;
 	font-size: $_fontSize;
 	outline: none;
+}
+
+svg {
+	fill: $_orange;
 }

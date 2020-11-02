@@ -1,19 +1,15 @@
-$dropdown-arrowSize: $_lineHeight / 2;
+$dropdown-arrowSize: $_iconSize;
 
 .dropdown {
 
 	position: relative;
 
-	&__button {
-
-		display: flex;
+	& > .button {
 
 		svg {
-			fill: $_orange;
 			transform: rotate(180deg);
 			width: $dropdown-arrowSize;
 			height: $dropdown-arrowSize;
-			margin: auto 0 auto $_gutter-small;
 		}
 
 	}
@@ -47,6 +43,7 @@ $dropdown-arrowSize: $_lineHeight / 2;
 
 	&Option {
 		padding: $_gutter-small;
+		font-family: 'Jost', sans-serif;
 	}
 
 	&--active .dropdown {

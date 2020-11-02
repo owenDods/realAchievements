@@ -1,0 +1,15 @@
+.button {
+
+	display: flex;
+
+	span {
+		margin: auto;
+	}
+
+	svg {
+		margin: auto auto auto $_gutter-small;
+		width: 50%;
+		height: 50%;
+	}
+
+}

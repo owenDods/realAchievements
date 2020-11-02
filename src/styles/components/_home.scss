@@ -3,6 +3,8 @@ $home-feedMargin: 100% - $home-feedWidth;
 
 .home {
 
+	padding: $_gutter 0 0;
+
 	&__feed {
 
 		width: 100%;

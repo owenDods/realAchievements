@@ -1,0 +1,13 @@
+.explore {
+
+	.button {
+		margin: auto;
+		width: 60vh;
+		height: 60vh;
+		max-width: calc(50vw - (#{$_gutter} * 2));
+		max-height: calc(50vw - (#{$_gutter} * 2));
+		font-size: $_fontSize-large;
+		padding: $_gutter;
+	}
+
+}

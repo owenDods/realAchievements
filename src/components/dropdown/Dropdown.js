@@ -6,6 +6,7 @@ import Triangle from '../../img/triangle.svg';
 
 import useDocumentClickListener from '../utils/useDocumentClickListener';
 
+import Button from '../button/Button';
 import List from '../list/List';
 import DropdownOption from './DropdownOption';
 
@@ -44,17 +45,7 @@ const Dropdown = ({ value = '', options, onSelect }) => {
 
 		<div className={styleClass} ref={dropdownEl}>
 
-			<button
-				className={`${className}__button`}
-				type="button"
-				onClick={handleActiveToggle}
-			>
-
-				<span>{value}</span>
-
-				<Triangle />
-
-			</button>
+			<Button label={value} onClick={handleActiveToggle} icon={(<Triangle />)} />
 
 			<div className={`${className}__options`}>
 
