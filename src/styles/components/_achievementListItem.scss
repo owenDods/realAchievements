@@ -23,6 +23,7 @@ $achievementListItem-imgSize: $_listItemHeight - ($_gutter * 2);
 		margin: 0 auto 0 0;
 		font-size: $_fontSize-medium;
 		font-weight: bold;
+		font-family: 'Jost', sans-serif;
 	}
 
 	&__dateEarned {
