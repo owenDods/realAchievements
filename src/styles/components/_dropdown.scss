@@ -39,11 +39,14 @@ $dropdown-arrowSize: $_lineHeight / 2;
 				width: auto;
 				height: auto;
 				margin: 0 0 $_gutter-small;
-				padding: $_gutter-small;
 			}
 
 		}
 
+	}
+
+	&Option {
+		padding: $_gutter-small;
 	}
 
 	&--active .dropdown {

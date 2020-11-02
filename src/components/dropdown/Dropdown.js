@@ -11,7 +11,7 @@ import DropdownOption from './DropdownOption';
 
 export const className = 'dropdown';
 
-const Dropdown = ({ value = '', options }) => {
+const Dropdown = ({ value = '', options, onSelect }) => {
 
 	const [ isActive, setIsActive ] = useState(false);
 	const handleActiveToggle = () => setIsActive(oldIsActive => !oldIsActive);
@@ -29,6 +29,14 @@ const Dropdown = ({ value = '', options }) => {
 	};
 
 	useDocumentClickListener(handleDocumentClick, isActive);
+
+	const handleSelect = selctedValue => {
+
+		onSelect(selctedValue);
+
+		handleActiveToggle();
+
+	};
 
 	const styleClass = isActive ? `${className} ${className}--active` : className;
 
@@ -55,7 +63,7 @@ const Dropdown = ({ value = '', options }) => {
 					name={`${className}-options`}
 				>
 
-					<DropdownOption />
+					<DropdownOption onClick={handleSelect} />
 
 				</List>
 
@@ -69,7 +77,8 @@ const Dropdown = ({ value = '', options }) => {
 
 Dropdown.propTypes = {
 	value: PropTypes.string,
-	options: PropTypes.arrayOf(PropTypes.string)
+	options: PropTypes.arrayOf(PropTypes.string),
+	onSelect: PropTypes.func
 };
 
 export default Dropdown;

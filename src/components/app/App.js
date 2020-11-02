@@ -14,6 +14,7 @@ import { appTransitionTiming } from '../../config';
 
 import NavBar from '../navBar/NavBar';
 import Home from '../home/Home';
+import Explore from '../explore/Explore';
 import LandingPage from '../landingPage/LandingPage';
 
 export const className = 'app';
@@ -21,9 +22,6 @@ export const className = 'app';
 const routeTransitionRenderer = ({ location }) => {
 
 	const { pathname } = location;
-	const allPaths = pathname.slice(1).split('/');
-	const rootPath = allPaths[0];
-	const nonRootPaths = allPaths.slice(1);
 
 	const styleClass = pathname === '/' ? `${className} ${className}--landingPage` : className;
 
@@ -31,10 +29,7 @@ const routeTransitionRenderer = ({ location }) => {
 
 		<div className={styleClass}>
 
-			<NavBar
-				rootPath={rootPath}
-				items={nonRootPaths}
-			/>
+			<NavBar pathname={pathname} />
 
 			<TransitionGroup className={`${className}__content`}>
 
@@ -51,6 +46,12 @@ const routeTransitionRenderer = ({ location }) => {
 						<Route path="/home">
 
 							<Home />
+
+						</Route>
+
+						<Route path="/explore">
+
+							<Explore />
 
 						</Route>
 

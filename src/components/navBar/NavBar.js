@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
 	TransitionGroup,
 	CSSTransition
 } from 'react-transition-group';
+import { Redirect } from 'react-router-dom';
+
 import map from 'lodash/fp/map';
 import startCase from 'lodash/fp/startCase';
+import toLower from 'lodash/fp/toLower';
 
 import { appTransitionTiming } from '../../config';
 
@@ -17,39 +20,64 @@ import NavBarItem from './NavBarItem';
 export const className = 'navBar';
 export const rootPaths = [ 'home', 'explore' ];
 
-const NavBar = ({ rootPath, items }) => (
+const NavBar = ({ pathname }) => {
 
-	<div className={className}>
+	const allPaths = pathname.slice(1).split('/');
+	const rootPath = allPaths[0];
+	const nonRootPaths = allPaths.slice(1);
 
-		<Trophy className={`${className}__trophy`} />
+	const [ newLocation, setNewLocation ] = useState(null);
+	useEffect(() => (
 
-		<Dropdown value={startCase(rootPath)} options={map(startCase, rootPaths)} />
+		() => setNewLocation(null)
 
-		<TransitionGroup className={`${className}__links`}>
+	), [ newLocation ]);
+	const handleLocationSelect = selectedLocation => {
 
-			{map.convert({ cap: false })((item, i) => (
+		setNewLocation(`/${toLower(selectedLocation)}`);
 
-				<CSSTransition
-					timeout={appTransitionTiming}
-					classNames={className}
-					key={`${className}-${i}-${item}`}
-				>
+	};
 
-					<NavBarItem name={item} />
+	return (
 
-				</CSSTransition>
+		<div className={className}>
 
-			), items)}
+			<Trophy className={`${className}__trophy`} />
 
-		</TransitionGroup>
+			<Dropdown
+				value={startCase(rootPath)}
+				options={map(startCase, rootPaths)}
+				onSelect={handleLocationSelect}
+			/>
 
-	</div>
+			<TransitionGroup className={`${className}__links`}>
 
-);
+				{map.convert({ cap: false })((nonRootPath, i) => (
+
+					<CSSTransition
+						timeout={appTransitionTiming}
+						classNames={className}
+						key={`${className}-${i}-${nonRootPath}`}
+					>
+
+						<NavBarItem name={nonRootPath} />
+
+					</CSSTransition>
+
+				), nonRootPaths)}
+
+			</TransitionGroup>
+
+			{newLocation && (<Redirect to={newLocation} />)}
+
+		</div>
+
+	);
+
+};
 
 NavBar.propTypes = {
-	rootPath: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.string)
+	pathname: PropTypes.string
 };
 
 export default NavBar;
