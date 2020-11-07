@@ -1,8 +1,9 @@
 .button {
 
 	display: flex;
+	position: relative;
 
-	span {
+	&__label {
 		margin: auto;
 	}
 
@@ -12,12 +13,34 @@
 		height: 50%;
 	}
 
+	&__disabledText {
+		position: absolute;
+		left: 0;
+		bottom: 50%;
+		transform: translateY(50%);
+		width: 100%;
+		background-color: $_black-mostlyOpaque;
+		padding: $_gutter-small 0;
+	}
+
 	&--textPositionBottom {
 
 		flex-direction: column-reverse;
 
 		svg {
 			margin: auto auto $_gutter-small auto;
+		}
+
+	}
+
+	&:disabled {
+
+		opacity: 1;
+		background-color: $_black-almostTransparent;
+
+		svg,
+		.button__label {
+			opacity: 0.2;
 		}
 
 	}

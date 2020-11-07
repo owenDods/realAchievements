@@ -22,3 +22,18 @@
 	}
 
 }
+
+@mixin notClickable {
+
+	cursor: default;
+
+	&:hover,
+	&:active {
+		background-color: $_black-mostlyTransparent;
+	}
+
+}
+
+@mixin disabled {
+	opacity: 0.5;
+}

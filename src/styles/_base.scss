@@ -53,3 +53,8 @@ button {
 svg {
 	fill: $_orange;
 }
+
+*:disabled {
+	@include disabled;
+	@include notClickable;
+}
