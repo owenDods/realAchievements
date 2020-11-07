@@ -2,24 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
 	BrowserRouter as Router,
-	Switch,
 	Route
 } from 'react-router-dom';
-import {
-	TransitionGroup,
-	CSSTransition
-} from 'react-transition-group';
-
-import { appTransitionTiming } from '../../config';
 
 import NavBar from '../navBar/NavBar';
 import Home from '../home/Home';
 import Explore from '../explore/Explore';
 import LandingPage from '../landingPage/LandingPage';
+import RouteTransitionRenderer from '../routeTransitionRenderer/RouteTransitionRenderer';
 
 export const className = 'app';
 
-const routeTransitionRenderer = ({ location }) => {
+const appRoutes = [
+	{
+		path: '/home',
+		component: (<Home />)
+	},
+	{
+		path: '/explore',
+		component: (<Explore />)
+	},
+	{
+		path: '/',
+		component: (<LandingPage />)
+	}
+];
+
+const appRoutesRenderer = ({ location }) => {
 
 	const { pathname } = location;
 
@@ -31,41 +40,11 @@ const routeTransitionRenderer = ({ location }) => {
 
 			<NavBar pathname={pathname} />
 
-			<TransitionGroup className={`${className}__content`}>
-
-				<CSSTransition
-					timeout={appTransitionTiming}
-					classNames={className}
-					key={pathname.match(/[^/]*\/[^/]*/)[0]}
-					appear
-					in
-				>
-
-					<Switch location={location}>
-
-						<Route path="/home">
-
-							<Home />
-
-						</Route>
-
-						<Route path="/explore">
-
-							<Explore />
-
-						</Route>
-
-						<Route path="/">
-
-							<LandingPage />
-
-						</Route>
-
-					</Switch>
-
-				</CSSTransition>
-
-			</TransitionGroup>
+			<RouteTransitionRenderer
+				location={location}
+				className={className}
+				routes={appRoutes}
+			/>
 
 		</div>
 
@@ -73,11 +52,9 @@ const routeTransitionRenderer = ({ location }) => {
 
 };
 
-routeTransitionRenderer.propTypes = {
+appRoutesRenderer.propTypes = {
 	location: PropTypes.shape({
-		pathname: PropTypes.shape({
-			match: PropTypes.string
-		})
+		pathname: PropTypes.string
 	})
 };
 
@@ -85,7 +62,7 @@ const App = () => (
 
 	<Router>
 
-		<Route render={routeTransitionRenderer} />
+		<Route render={appRoutesRenderer} />
 
 	</Router>
 
