@@ -16,8 +16,17 @@
 		transition: opacity $_transitionTiming ease-in-out;
 	}
 
-	&--landingPage:before {
-		opacity: 0;
+	.navBar {
+		transition: opacity $_transitionTiming ease-in-out;
+	}
+
+	&--landingPage {
+
+		&:before,
+		.navBar {
+			opacity: 0;
+		}
+
 	}
 
 	&__content {
