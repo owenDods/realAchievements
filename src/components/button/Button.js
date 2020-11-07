@@ -7,8 +7,7 @@ export const className = 'button';
 
 const Button = ({ label, onClick, icon, textPosition, disabled, disabledText = '' }) => {
 
-	const styleClass = textPosition ?
-		`${className} ${className}--textPosition${capitalize(textPosition)}` : className;
+	const styleClass = textPosition ? `${className} ${className}--textPosition${capitalize(textPosition)}` : className;
 
 	return (
 
