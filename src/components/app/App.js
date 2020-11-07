@@ -42,7 +42,7 @@ const appRoutesRenderer = ({ location }) => {
 
 			<RouteTransitionRenderer
 				location={location}
-				className={className}
+				customClass={className}
 				routes={appRoutes}
 			/>
 

@@ -10,13 +10,16 @@ import { appTransitionTiming } from '../../config';
 
 import renderRoutes from './utils/renderRoutes';
 
-const RouteTransitionRenderer = ({ location, className, routes }) => {
+export const className = 'routeTransitionRenderer';
+
+const RouteTransitionRenderer = ({ location, customClass, routes }) => {
 
 	const { pathname } = location;
+	const styleClass = customClass ? `${className} ${customClass}__routes` : className;
 
 	return (
 
-		<TransitionGroup className={`${className}__content`}>
+		<TransitionGroup className={styleClass}>
 
 			<CSSTransition
 				timeout={appTransitionTiming}

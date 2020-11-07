@@ -1,29 +1,27 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
-import Compass from '../../img/compass.svg';
-import Categories from '../../img/categories.svg';
-
-import Button from '../button/Button';
+import ExploreTopLevel from './ExploreTopLevel';
+import RouteTransitionRenderer from '../routeTransitionRenderer/RouteTransitionRenderer';
 
 export const className = 'explore';
+
+const exploreRoutes = [
+	{
+		path: '/',
+		component: (<ExploreTopLevel />)
+	}
+];
 
 const Explore = () => (
 
 	<div className={className}>
 
-		<Button
-			label="By Location"
-			icon={(<Compass />)}
-			textPosition="bottom"
-			disabled
-			disabledText="Under Construction"
-		/>
-
-		<Button
-			label="By Category"
-			icon={(<Categories />)}
-			textPosition="bottom"
+		<RouteTransitionRenderer
+			location={useLocation()}
+			customClass={className}
+			routes={exploreRoutes}
 		/>
 
 	</div>
