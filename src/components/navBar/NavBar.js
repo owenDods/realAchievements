@@ -62,7 +62,7 @@ const NavBar = ({ pathname }) => {
 						in
 					>
 
-						<NavBarItem name={startCase(nonRootPath)} />
+						<NavBarItem name={nonRootPath} />
 
 					</CSSTransition>
 
