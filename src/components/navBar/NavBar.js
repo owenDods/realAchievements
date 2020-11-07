@@ -58,9 +58,11 @@ const NavBar = ({ pathname }) => {
 						timeout={appTransitionTiming}
 						classNames={className}
 						key={`${className}-${i}-${nonRootPath}`}
+						appear
+						in
 					>
 
-						<NavBarItem name={nonRootPath} />
+						<NavBarItem name={startCase(nonRootPath)} />
 
 					</CSSTransition>
 

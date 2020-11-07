@@ -28,10 +28,23 @@ $navBar-trophySize: calc(#{$_navBarHeight} - (#{$_gutter} * 2));
 
 		display: flex;
 		margin: 0 0 0 $_gutter;
+		transition: opacity $_transitionTiming ease-in-out, transform $_transitionTiming ease-in-out;
+		opacity: 0;
+		transform: translateX(-$_gutter-small);
 
 		&__name {
 			margin: auto;
 			padding: $_gutter;
+		}
+
+		&.navBar-enter {
+
+			&-active,
+			&-done {
+				opacity: 1;
+				transform: none;
+			}
+
 		}
 
 	}
