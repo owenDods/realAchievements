@@ -50,6 +50,11 @@ button {
 	outline: none;
 }
 
+a {
+	@include clickable;
+	text-decorarion: none;
+}
+
 svg {
 	fill: $_orange;
 }

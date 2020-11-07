@@ -1,14 +1,20 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 
 import map from 'lodash/fp/map';
 
-export default routes => map(({ path, component }) => (
+export default routes => {
 
-	<Route path={path} key={path}>
+	const { path: urlPath } = useRouteMatch();
 
-		{component}
+	return map(({ path = '', component }) => (
 
-	</Route>
+		<Route path={`${urlPath}${path}`} key={`${urlPath}${path}`}>
 
-), routes);
+			{component}
+
+		</Route>
+
+	), routes);
+
+};

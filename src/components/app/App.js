@@ -15,15 +15,14 @@ export const className = 'app';
 
 const appRoutes = [
 	{
-		path: '/home',
+		path: 'home',
 		component: (<Home />)
 	},
 	{
-		path: '/explore',
+		path: 'explore',
 		component: (<Explore />)
 	},
 	{
-		path: '/',
 		component: (<LandingPage />)
 	}
 ];

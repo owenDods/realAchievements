@@ -3,13 +3,17 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 import ExploreTopLevel from './ExploreTopLevel';
+import ExploreCategories from './ExploreCategories';
 import RouteTransitionRenderer from '../routeTransitionRenderer/RouteTransitionRenderer';
 
 export const className = 'explore';
 
 const exploreRoutes = [
 	{
-		path: '/',
+		path: '/categories',
+		component: (<ExploreCategories />)
+	},
+	{
 		component: (<ExploreTopLevel />)
 	}
 ];

@@ -24,7 +24,7 @@ const RouteTransitionRenderer = ({ location, customClass, routes }) => {
 			<CSSTransition
 				timeout={appTransitionTiming}
 				classNames={className}
-				key={pathname.match(/[^/]*\/[^/]*/)[0]}
+				key={pathname}
 				appear
 				in
 			>
@@ -47,7 +47,7 @@ RouteTransitionRenderer.propTypes = {
 	location: PropTypes.shape({
 		pathname: PropTypes.string
 	}),
-	className: PropTypes.string,
+	customClass: PropTypes.string,
 	routes: PropTypes.arrayOf(PropTypes.shape({
 		path: PropTypes.string,
 		component: PropTypes.element

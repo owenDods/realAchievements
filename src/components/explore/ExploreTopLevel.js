@@ -1,5 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 import Compass from '../../img/compass.svg';
 import Categories from '../../img/categories.svg';
@@ -24,6 +25,8 @@ const ExploreTopLevel = () => (
 			label="By Category"
 			icon={(<Categories />)}
 			textPosition="bottom"
+			isLink
+			to={`${useLocation().pathname}/categories`}
 		/>
 
 	</div>
