@@ -52,7 +52,9 @@ button {
 
 a {
 	@include clickable;
-	text-decorarion: none;
+	text-decoration: none;
+	color: $_orange;
+	box-sizing: border-box;
 }
 
 svg {
