@@ -87,4 +87,37 @@
 
 	}
 
+	&--grid {
+
+		& > ul {
+			flex-direction: row;
+			flex-wrap: wrap;
+			box-sizing: border-box;
+			padding: $_gutter 0 0 $_gutter;
+			margin: auto;
+		}
+
+		.list__item {
+			margin: 0 $_gutter $_gutter 0;
+			width: $_listItemHeight;
+			display: inline-block;
+		}
+
+		.list {
+
+			&-enter {
+
+				transform: scale(0.8);
+
+				&-active,
+				&-done {
+					transform: scale(1);
+				}
+
+			}
+
+		}
+
+	}
+
 }

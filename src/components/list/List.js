@@ -12,7 +12,7 @@ export const placeholderCount = 7;
 export const staggerDelay = 0.1;
 export const className = 'list';
 
-const List = ({ items, children, name }) => {
+const List = ({ items, children, name, grid }) => {
 
 	const [ isWaitingForInitialLoad, setWaitingForInitialLoadStatus ] = useState(true);
 	const [ showActualItems, setShowActualItems ] = useState(false);
@@ -79,7 +79,8 @@ const List = ({ items, children, name }) => {
 
 	), items) : null;
 
-	const styleClass = !showActualItems ? `${className} ${className}--showingPlaceholders` : className;
+	let styleClass = !showActualItems ? `${className} ${className}--showingPlaceholders` : className;
+	styleClass = grid ? `${styleClass} ${className}--grid` : styleClass;
 
 	return (
 
@@ -102,7 +103,8 @@ const List = ({ items, children, name }) => {
 List.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({})),
 	children: PropTypes.element,
-	name: PropTypes.string.isRequired
+	name: PropTypes.string.isRequired,
+	grid: PropTypes.bool
 };
 
 export default List;
