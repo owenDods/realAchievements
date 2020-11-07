@@ -11,6 +11,16 @@
 		transition: opacity $_transitionTiming ease-in-out $_transitionTiming;
 		display: flex;
 
+		&.routeTransitionRenderer-appear {
+
+			&-enter,
+			&-active,
+			&-done {
+				transition: opacity $_transitionTiming ease-in-out;
+			}
+
+		}
+
 		&.routeTransitionRenderer-enter {
 
 			&-active,
