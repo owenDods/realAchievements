@@ -1,3 +1,6 @@
+$list-gridColumnCount: 4;
+$list-gridItemSize: calc(((#{$_contentRatio}vw - #{$_gutter}) / #{$list-gridColumnCount}) - #{$_gutter});
+
 .list {
 
 	width: 100%;
@@ -99,7 +102,8 @@
 
 		.list__item {
 			margin: 0 $_gutter $_gutter 0;
-			width: $_listItemHeight;
+			width: $list-gridItemSize;
+			height: $list-gridItemSize;
 			display: inline-block;
 		}
 

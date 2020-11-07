@@ -14,4 +14,16 @@
 
 	}
 
+	&Categories {
+
+		.list--grid > ul {
+			width: $_contentWidth;
+		}
+
+		&Item {
+			display: flex;
+		}
+
+	}
+
 }
