@@ -1,35 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
+
+import delay from 'lodash/fp/delay';
+
+import categoriesJson from '../../categories.json';
 
 import List from '../list/List';
 import ExploreCategoriesItem from './ExploreCategoriesItem';
 
 export const className = 'exploreCategories';
 
-const categories = [
-	{ name: 'Category 1' },
-	{ name: 'Category 2' },
-	{ name: 'Category 3' },
-	{ name: 'Category 4' },
-	{ name: 'Category 5' },
-	{ name: 'Category 6' },
-	{ name: 'Category 7' },
-	{ name: 'Category 8' }
-];
+const ExploreCategories = () => {
 
-const ExploreCategories = () => (
+	const [ categories, setCategories ] = useState(null);
+	useEffect(() => {
 
-	<div className={className}>
+		new Promise(res => {
 
-		<List items={categories} name={`${className}-grid`} grid>
+			delay(2000, () => res(categoriesJson));
 
-			<ExploreCategoriesItem />
+		})
+			.then(data => setCategories(data));
 
-		</List>
+	}, []);
 
-	</div>
+	return (
 
-);
+		<div className={className}>
+
+			<List items={categories} name={`${className}-grid`} grid>
+
+				<ExploreCategoriesItem />
+
+			</List>
+
+		</div>
+
+	);
+
+};
 
 ExploreCategories.propTypes = {};
 
