@@ -42,13 +42,7 @@ $dropdown-arrowSize: $_iconSize;
 					padding: $_gutter-small;
 					font-family: 'Jost', sans-serif;
 					line-height: normal;
-					background-color: transparent;
-					box-shadow: none;
-
-					&:hover,
-					&:active {
-						background-color: transparent;
-					}
+					@include makeButtonTransparent;
 
 					& > span {
 						margin: auto auto auto 0;

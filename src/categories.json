@@ -1,42 +1,32 @@
 [
 	{
 		"id": 1,
-		"name": "Category 1"
+		"name": "Nature",
+		"icon": "nature"
 	},
 	{
 		"id": 2,
-		"name": "Category 2"
+		"name": "Fitness & Sport",
+		"icon": "sport"
 	},
 	{
 		"id": 3,
-		"name": "Category 3"
+		"name": "Food & Drink",
+		"icon": "meal"
 	},
 	{
 		"id": 4,
-		"name": "Category 4"
+		"name": "Culture",
+		"icon": "culture"
 	},
 	{
 		"id": 5,
-		"name": "Category 5"
+		"name": "Gaming & Recreation",
+		"icon": "gaming"
 	},
 	{
 		"id": 6,
-		"name": "Category 6"
-	},
-	{
-		"id": 7,
-		"name": "Category 7"
-	},
-	{
-		"id": 8,
-		"name": "Category 8"
-	},
-	{
-		"id": 9,
-		"name": "Category 9"
-	},
-	{
-		"id": 10,
-		"name": "Category 10"
+		"name": "Life Milestones",
+		"icon": "milestone"
 	}
 ]
