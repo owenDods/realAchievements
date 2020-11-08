@@ -8,7 +8,8 @@ import {
 
 import { appTransitionTiming } from '../../config';
 
-export const placeholderCount = 7;
+export const defaultPlaceholderCount = 8;
+export const gridPlaceholderCount = 12;
 export const staggerDelay = 0.1;
 export const className = 'list';
 
@@ -47,6 +48,7 @@ const List = ({ items, children, name, grid }) => {
 	const getPlaceHolderItems = () => {
 
 		const placeholderItems = [];
+		const placeholderCount = grid ? gridPlaceholderCount : defaultPlaceholderCount;
 
 		while (placeholderItems.length < placeholderCount) {
 
