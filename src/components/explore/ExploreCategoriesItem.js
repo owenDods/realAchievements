@@ -19,7 +19,7 @@ const ExploreCategoriesItem = ({ name, icon }) => (
 			icon={get(icon, categoryIconMap)}
 			textPosition="bottom"
 			isLink
-			to={`${useLocation().pathname}/${name}`}
+			to={`${useLocation().pathname}/${encodeURIComponent(name)}`}
 		/>
 
 	</div>

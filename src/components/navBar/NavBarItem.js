@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import startCase from 'lodash/fp/startCase';
-
 import Triangle from '../../img/triangle.svg';
 
 import Button from '../button/Button';
 
 export const className = 'navBarItem';
 
-const NavBarItem = ({ name }) => (
+const NavBarItem = ({ name, to }) => (
 
 	<div className={className}>
 
 		<Triangle />
 
-		<Button label={startCase(name)} isLink to={name} />
+		<Button label={name} isLink to={to} />
 
 	</div>
 
 );
 
 NavBarItem.propTypes = {
-	name: PropTypes.string
+	name: PropTypes.string,
+	to: PropTypes.string
 };
 
 export default NavBarItem;

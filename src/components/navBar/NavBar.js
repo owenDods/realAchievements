@@ -14,6 +14,8 @@ import { appTransitionTiming } from '../../config';
 
 import Trophy from '../../img/trophy.svg';
 
+import getAllPathsAsBreadcrumbObjects from './utils/getAllPathsAsBreadcrumbObjects';
+
 import Dropdown from '../dropdown/Dropdown';
 import NavBarItem from './NavBarItem';
 
@@ -24,7 +26,6 @@ const NavBar = ({ pathname }) => {
 
 	const allPaths = pathname.slice(1).split('/');
 	const rootPath = allPaths[0];
-	const nonRootPaths = allPaths.slice(1);
 
 	const [ newLocation, setNewLocation ] = useState(null);
 	useEffect(() => (
@@ -57,21 +58,21 @@ const NavBar = ({ pathname }) => {
 
 			<TransitionGroup className={`${className}__links`}>
 
-				{map.convert({ cap: false })((nonRootPath, i) => (
+				{map.convert({ cap: false })(({ name, to }, i) => (
 
 					<CSSTransition
 						timeout={appTransitionTiming}
 						classNames={className}
-						key={`${className}-${i}-${nonRootPath}`}
+						key={`${className}-${i}-${name}`}
 						appear
 						in
 					>
 
-						<NavBarItem name={nonRootPath} />
+						<NavBarItem name={name} to={to} />
 
 					</CSSTransition>
 
-				), nonRootPaths)}
+				), getAllPathsAsBreadcrumbObjects(allPaths))}
 
 			</TransitionGroup>
 
