@@ -32,9 +32,30 @@ $dropdown-arrowSize: $_iconSize;
 			overflow: visible;
 
 			&__item {
+
 				width: auto;
 				height: auto;
 				margin: 0 0 $_gutter-small;
+
+				& > .button {
+
+					padding: $_gutter-small;
+					font-family: 'Jost', sans-serif;
+					line-height: normal;
+					background-color: transparent;
+					box-shadow: none;
+
+					&:hover,
+					&:active {
+						background-color: transparent;
+					}
+
+					& > span {
+						margin: auto auto auto 0;
+					}
+
+				}
+
 			}
 
 		}

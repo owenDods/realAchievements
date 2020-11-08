@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 
 import Triangle from '../../img/triangle.svg';
 
@@ -50,7 +49,7 @@ const Dropdown = ({ value = '', options, onSelect }) => {
 			<div className={`${className}__options`}>
 
 				<List
-					items={map(option => ({ label: option }), options)}
+					items={options}
 					name={`${className}-options`}
 				>
 
@@ -68,7 +67,11 @@ const Dropdown = ({ value = '', options, onSelect }) => {
 
 Dropdown.propTypes = {
 	value: PropTypes.string,
-	options: PropTypes.arrayOf(PropTypes.string),
+	options: PropTypes.arrayOf(PropTypes.shape({
+		label: PropTypes.string,
+		isLink: PropTypes.bool,
+		to: PropTypes.string
+	})),
 	onSelect: PropTypes.func
 };
 

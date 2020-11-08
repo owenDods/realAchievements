@@ -1,21 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../button/Button';
+
 export const className = 'dropdownOption';
 
-const DropdownOption = ({ label, onClick }) => (
+const DropdownOption = ({ label, onClick, isLink, to }) => {
 
-	<p className={className} onClick={() => onClick(label)}>
+	if (isLink) {
 
-		{label}
+		return (
 
-	</p>
+			<Button label={label} isLink to={to} />
 
-);
+		);
+
+	}
+
+	return (
+
+		<p className={className} onClick={() => onClick(label)}>
+
+			{label}
+
+		</p>
+
+	);
+
+};
 
 DropdownOption.propTypes = {
 	label: PropTypes.string,
-	onClick: PropTypes.func.isRequired
+	onClick: PropTypes.func.isRequired,
+	isLink: PropTypes.bool,
+	to: PropTypes.string
 };
 
 export default DropdownOption;

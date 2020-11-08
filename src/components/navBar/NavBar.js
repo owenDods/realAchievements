@@ -32,6 +32,11 @@ const NavBar = ({ pathname }) => {
 		() => setNewLocation(null)
 
 	), [ newLocation ]);
+	const rootPathOptions = map(rootPathItem => ({
+		label: startCase(rootPathItem),
+		isLink: true,
+		to: `/${rootPathItem}`
+	}), rootPaths);
 	const handleLocationSelect = selectedLocation => {
 
 		setNewLocation(`/${toLower(selectedLocation)}`);
@@ -46,7 +51,7 @@ const NavBar = ({ pathname }) => {
 
 			<Dropdown
 				value={startCase(rootPath)}
-				options={map(startCase, rootPaths)}
+				options={rootPathOptions}
 				onSelect={handleLocationSelect}
 			/>
 
