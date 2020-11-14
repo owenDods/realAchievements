@@ -4,11 +4,16 @@ import { useLocation } from 'react-router-dom';
 
 import ExploreTopLevel from './ExploreTopLevel';
 import ExploreCategories from './ExploreCategories';
+import ExploreCategory from './ExploreCategory';
 import RouteTransitionRenderer from '../routeTransitionRenderer/RouteTransitionRenderer';
 
 export const className = 'explore';
 
 const exploreRoutes = [
+	{
+		path: '/categories/:category',
+		component: (<ExploreCategory />)
+	},
 	{
 		path: '/categories',
 		component: (<ExploreCategories />)
